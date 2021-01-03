@@ -1,4 +1,5 @@
-﻿using System;
+﻿using System.Diagnostics;
+using System;
 using System.Collections.Generic;
 
 namespace csharpcore
@@ -39,7 +40,10 @@ namespace csharpcore
 
             var app = new GildedRose(Items);
 
+            Stopwatch stopwatch = new Stopwatch();
+            TimeSpan ts;
 
+            stopwatch.Start();
             for (var i = 0; i < 31; i++)
             {
                 Console.WriteLine("-------- day " + i + " --------");
@@ -51,6 +55,14 @@ namespace csharpcore
                 Console.WriteLine("");
                 app.UpdateQuality();
             }
+            stopwatch.Stop();
+            ts = stopwatch.Elapsed;
+
+            string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:00}",
+            ts.Hours, ts.Minutes, ts.Seconds,
+            ts.Milliseconds / 10);
+
+            Console.WriteLine("RunTime " + elapsedTime);
         }
     }
 }
