@@ -12,7 +12,10 @@ namespace csharpcore
 
         public void UpdateQuality()
         {
-            
+            foreach(Item a in Items)
+            {
+                
+            }
         }
     }
 }

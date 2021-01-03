@@ -8,10 +8,23 @@ namespace csharpcore
         [Fact]
         public void foo()
         {
-            IList<Item> Items = new List<Item> { new Item { Name = "foo", SellIn = 0, Quality = 0 } };
-            GildedRose app = new GildedRose(Items);
-            app.UpdateQuality();
-            Assert.Equal("fixme", Items[0].Name);
+           
+            //Arrange
+            ItemsInit initItems = new ItemsInit();
+            IList<Item> actualItems = initItems.Init();
+            IList<Item> expectedItems = initItems.Init();
+
+            GildedRose expected = new GildedRose(actualItems);
+            Switch result = new Switch(expectedItems);
+
+            //Act
+            expected.UpdateQuality();
+            result.UpdateQuality();
+
+            //Assert
+            Assert.Equal(expectedItems[0].SellIn, actualItems[0].SellIn);
+
+            
         }
     }
 }
