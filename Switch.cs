@@ -49,17 +49,6 @@ namespace csharpcore
                         // Do nothing because "legendery item"
                         break;
 
-                    case "Conjured Mana Cake":
-                        if(a.Quality - 1 >= 0)
-                            a.Quality--;
-                        
-                        if(a.Quality - 1 >= 0 && a.SellIn <= 0)
-                            a.Quality--;
-
-                        a.SellIn = a.SellIn - 2;
-
-                        break;
-
                     default:
 
                         if(a.Quality - 1 >= 0)
@@ -70,6 +59,8 @@ namespace csharpcore
 
                         a.SellIn--;
 
+                        if(a.Name.StartsWith("Conjured"))
+                            a.SellIn--;
                         break;
                 }
             }
