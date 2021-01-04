@@ -11,15 +11,16 @@ namespace csharpcore
             Console.WriteLine("OMGHAI!");
             ItemsInit initItems = new ItemsInit();
             IList<Item> Items = initItems.Init();
-
-            // var app = new GildedRose(Items);
             
+            //Unit tests
+            var test = new GildedRoseTest();
+            test.foo();
+            
+            // Printing Switch results
+            // Change "Switch" to GildedRose
+            // To get the default results
             var app = new Switch(Items);
 
-            Stopwatch stopwatch = new Stopwatch();
-            TimeSpan ts;
-
-            stopwatch.Start();
             for (var i = 0; i < 31; i++)
             {
                 Console.WriteLine("-------- day " + i + " --------");
@@ -31,20 +32,7 @@ namespace csharpcore
                 Console.WriteLine("");
                 app.UpdateQuality();
             }
-            stopwatch.Stop();
-            ts = stopwatch.Elapsed;
-
-            string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:00}",
-            ts.Hours, ts.Minutes, ts.Seconds,
-            ts.Milliseconds / 10);
-
-            Console.WriteLine("RunTime " + elapsedTime);
-
-            var test = new GildedRoseTest();
-            test.foo();
-
            
-
         }
     }
 }

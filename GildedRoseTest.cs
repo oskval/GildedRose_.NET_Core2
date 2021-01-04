@@ -17,22 +17,21 @@ namespace csharpcore
             GildedRose expected = new GildedRose(expectedItems);
             Switch result = new Switch(actualItems);
 
-            //Act
-            // expected.UpdateQuality();
-            // result.UpdateQuality();
-
-            //Assert
-
-            // Assert.Equal(expectedItems[0].SellIn, actualItems[0].SellIn);
-
             //Assert all
+            //Compare Switch answers with default
+            //Note that Conjured Items don't work by default
+            //So the Cojured items have been removed from assertion
             for(int i = 0; i < 31; i++)
             {
                 for(int j = 0; j < actualItems.Count; j++)
                 {
-                    Assert.Equal(expectedItems[j].SellIn, actualItems[j].SellIn);
-                    Assert.Equal(expectedItems[j].Quality, actualItems[j].Quality);
+                    if(!expectedItems[j].Name.ToString().StartsWith("Conjured"))
+                    {
+                        Assert.Equal(expectedItems[j].SellIn, actualItems[j].SellIn);
+                        Assert.Equal(expectedItems[j].Quality, actualItems[j].Quality);
+                    }
                 }
+                //Act
                 expected.UpdateQuality();
                 result.UpdateQuality();
 
