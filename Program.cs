@@ -16,11 +16,19 @@ namespace csharpcore
             var test = new GildedRoseTest();
             test.foo();
             
-            // Printing Switch results
-            // Change "Switch" to GildedRose
-            // To get the default results
+            // Printing results form Switch and GildedRose
             var app = new Switch(Items);
+            var app1 = new GildedRose(Items);
 
+            //Switch
+            System.Console.WriteLine("Printing new Switch");
+            printResults(app, Items);
+            //GildedRose
+            System.Console.WriteLine("Printing default GildedRose");
+            printResults(app1, Items);
+        }
+        public static void printResults(dynamic app, IList<Item> Items)
+        {
             for (var i = 0; i < 31; i++)
             {
                 Console.WriteLine("-------- day " + i + " --------");
@@ -32,7 +40,6 @@ namespace csharpcore
                 Console.WriteLine("");
                 app.UpdateQuality();
             }
-           
         }
     }
 }
