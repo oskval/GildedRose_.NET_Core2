@@ -30,6 +30,19 @@ namespace csharpcore
                     
                     case "Backstage passes to a TAFKAL80ETC concert":
 
+                        if(a.Quality + 1 <= 50 && a.SellIn > 0)
+                            a.Quality++;
+
+                        if(a.Quality + 1 <= 50 && a.SellIn > 0 && a.SellIn <= 10)
+                            a.Quality++;
+
+                        if(a.Quality + 1 <= 50 && a.SellIn > 0 && a.SellIn <= 5)
+                            a.Quality++;
+                        
+                        if(a.SellIn <= 0)
+                            a.Quality = 0;
+
+                        a.SellIn--;
                         break;
 
                     case "Sulfuras, Hand of Ragnaros":
