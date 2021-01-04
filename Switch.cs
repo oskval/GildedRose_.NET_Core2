@@ -18,7 +18,14 @@ namespace csharpcore
                 switch(a.Name.ToString())
                 {
                     case "Aged Brie":
-                           
+
+                        if(a.Quality + 1 <= 50)
+                            a.Quality++;
+                        
+                        if(a.Quality + 1 <= 50 && a.SellIn <= 0)
+                            a.Quality++;
+
+                        a.SellIn--;
                         break;
                     
                     case "Backstage passes to a TAFKAL80ETC concert":
