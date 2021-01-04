@@ -28,12 +28,11 @@ namespace csharpcore
             //Assert all
             for(int i = 0; i < 31; i++)
             {
-                Assert.Equal(expectedItems[0].SellIn, actualItems[0].SellIn);
-                Assert.Equal(expectedItems[0].Quality, actualItems[0].Quality);
-
-                Assert.Equal(expectedItems[1].SellIn, actualItems[1].SellIn);
-                Assert.Equal(expectedItems[1].Quality, actualItems[1].Quality);
-
+                for(int j = 0; j < actualItems.Count; j++)
+                {
+                    Assert.Equal(expectedItems[j].SellIn, actualItems[j].SellIn);
+                    Assert.Equal(expectedItems[j].Quality, actualItems[j].Quality);
+                }
                 expected.UpdateQuality();
                 result.UpdateQuality();
 
