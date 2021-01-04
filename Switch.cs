@@ -46,10 +46,17 @@ namespace csharpcore
                         break;
 
                     case "Sulfuras, Hand of Ragnaros":
-
+                        // Do nothing because "legendery item"
                         break;
 
                     case "Conjured Mana Cake":
+                        if(a.Quality - 1 >= 0)
+                            a.Quality--;
+                        
+                        if(a.Quality - 1 >= 0 && a.SellIn <= 0)
+                            a.Quality--;
+
+                        a.SellIn = a.SellIn - 2;
 
                         break;
 
